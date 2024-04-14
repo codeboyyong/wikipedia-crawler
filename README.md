@@ -38,3 +38,9 @@ pip install -r requirements.txt
 
 ## Updates 
 The new versiion will take all the urls in ./inputs/target_urls.txt file , run them one by one and save output into outputs file, also the session outputs there.
+
+to batch run we run 
+```
+./wikipedia-batch-crawler.sh
+
+```

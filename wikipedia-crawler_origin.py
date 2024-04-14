@@ -60,26 +60,23 @@ def scrap(base_url, article, output_file, session_file):
         return
 
     soup = BeautifulSoup(r.text, 'html.parser')
-    # Lets start from begining...
-    # we need h2 , h3 and  
-    # example : soup.find_all(lambda tag: tag.name=="div" and tag.get("id")=="examples_box" and  tag.get("class") == "term-subsec")
+    
+    content = soup.find('div', {'id':'mw-content-text'})
 
-    content = soup.find('div', {'id':'mw-content-text'}) #, apage only have one mw-content-text
+    h2 = soup.findAll('h2')
 
-    # h2 = soup.findAll('h2')
+    h3 = soup.findAll('h3')
+    print(f"h2===========================\n")
+    # print(h2)
 
-    # h3 = soup.findAll('h3')
-    # print(f"h2===========================\n")
-    # # print(h2)
-
-    # # <span class="mw-headline" 
-    # for h in h2:
-    #     # print(h)
-    #     if len(h) > 1: #TypeError: slice indices must be integers or None or have an __index__ method
-    #         for x in h.find('span', {'class':'mw-headline'}):
-    #             print(x)
-    #     else:
-    #         continue
+    # <span class="mw-headline" 
+    for h in h2:
+        # print(h)
+        if len(h) > 1: #TypeError: slice indices must be integers or None or have an __index__ method
+            for x in h.find('span', {'class':'mw-headline'}):
+                print(x)
+        else:
+            continue
 
     # print(f"h3===========================\n")
     # for h in h3.find('span', {'class':'mw-headline'}):
@@ -91,8 +88,6 @@ def scrap(base_url, article, output_file, session_file):
 
     # add new related articles to queue
     # check if are actual articles URL
-
-
     for a in content.find_all('a'):
         href = a.get('href')
         if not href:
@@ -116,34 +111,17 @@ def scrap(base_url, article, output_file, session_file):
 
     parenthesis_regex = re.compile('\(.+?\)')  # to remove parenthesis content
     citations_regex = re.compile('\[.+?\]')  # to remove citations, e.g. [1]
-    print(f"start find all in content =====")
 
     # get plain text from each <p>
-    h_or_p =  content.find_all(lambda tag: tag.name=="h2" or tag.name=="h3" or tag.name=="p"  )
-    # print(f"h_or_p====={h_or_p}")
-
-    # p_list = content.find_all('p')
+    p_list = content.find_all('p')
     with open(output_file, 'a', encoding='utf-8') as fout:
-        for item in h_or_p:
-            if item.name=="h2":
-                print(f"processing h2:{item.get_text()}")
-                fout.write('## '+item.get_text() + '\n\n')  #h2
-            if item.name=="h3":
-                print(f"processing 3:{item.get_text()}")
-                fout.write('### '+item.get_text() + '\n\n')  #h3
-            if item.name=="p":
-                text = item.get_text().strip()
-                text = parenthesis_regex.sub('', text)
-                text = citations_regex.sub('', text)
-                if text:
-                    fout.write(text + '\n\n')  # extra line between paragraphs
+        for p in p_list:
+            text = p.get_text().strip()
+            text = parenthesis_regex.sub('', text)
+            text = citations_regex.sub('', text)
+            if text:
+                fout.write(text + '\n\n')  # extra line between paragraphs
 
-# head_tag is h2 or h3 
-# <h2><span id=".E5.9B.BD.E5.AE.B6.E9.98.9F.E7.BB.8F.E5.8E.86"></span><span class="mw-headline" id="国家队经历">国家队经历</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%9C%B1%E5%A9%B7&amp;action=edit&amp;section=2" title="编辑章节：国家队经历"><span>编辑</span></a><span class="mw-editsection-bracket">]</span></span></h2>
-# <h3><span id=".E5.9C.8B.E5.B0.91.E5.8F.8A.E5.9C.8B.E9.9D.92.E6.99.82.E6.9C.9F.EF.BC.882010-2013.E5.B9.B4.EF.BC.89"></span><span class="mw-headline" id="國少及國青時期（2010-2013年）">国少及国青时期（2010-2013年）</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%9C%B1%E5%A9%B7&amp;action=edit&amp;section=3" title="编辑章节：国少及国青时期（2010-2013年）"><span>编辑</span></a><span class="mw-editsection-bracket">]</span></span></h3>
- 
-def get_text_from_header(head_tag):
-    return "xxx"
 
 def main(initial_url, articles_limit, interval, output_file):
     """ Main loop, single thread """
