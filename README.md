@@ -4,6 +4,7 @@ Extracts plain-text from series of Wikipedia articles and saves to a local text 
 The goal is to have text samples of a specific language on a specific topic, so the output can be used on computer analysis applied to linguistics (word frequency, distribution, etc), **or to generate wordlists of any language on Wikipedia (294 languages)**.
 
 ## Usage:
+
 ```
 python3 wikipedia-crawler.py https://en.wikipedia.org/wiki/Biology
 ```
@@ -22,5 +23,18 @@ In this example the initial article is [Biology](https://en.wikipedia.org/wiki/B
 * [Requests](http://docs.python-requests.org/)
 
 ```
+<!-- It need python3.9 -->
+conda create -n web_crawler python=3.9
+conda activate web_crawler
+
+
+<!-- also to avoid ssl issue you need run  -->
+pip install --upgrade certifi
+<!-- then run the dependencies  -->
 pip install -r requirements.txt
 ```
+
+
+
+## Updates 
+The new versiion will take all the urls in ./inputs/target_urls.txt file , run them one by one and save output into outputs file, also the session outputs there.
