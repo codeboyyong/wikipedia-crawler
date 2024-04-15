@@ -126,12 +126,14 @@ def scrap(base_url, article, output_file, session_file):
     with open(output_file, 'a', encoding='utf-8') as fout:
         for item in h_or_p:
             if item.name=="h2":
-                print(f"processing h2:{item.get_text()}")
-                fout.write('## '+item.get_text() + '\n\n')  #h2
-            if item.name=="h3":
-                print(f"processing 3:{item.get_text()}")
-                fout.write('### '+item.get_text() + '\n\n')  #h3
-            if item.name=="p":
+                text = get_text_from_header(item)
+                print(f"processing h2:{text}")
+                fout.write(f"## {text} \n\n")  #h2
+            elif item.name=="h3":
+                text = get_text_from_header(item)
+                print(f"processing h3:{text}")
+                fout.write(f"### {text} \n\n")  #h3
+            elif item.name=="p":
                 text = item.get_text().strip()
                 text = parenthesis_regex.sub('', text)
                 text = citations_regex.sub('', text)
@@ -143,7 +145,15 @@ def scrap(base_url, article, output_file, session_file):
 # <h3><span id=".E5.9C.8B.E5.B0.91.E5.8F.8A.E5.9C.8B.E9.9D.92.E6.99.82.E6.9C.9F.EF.BC.882010-2013.E5.B9.B4.EF.BC.89"></span><span class="mw-headline" id="國少及國青時期（2010-2013年）">国少及国青时期（2010-2013年）</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%9C%B1%E5%A9%B7&amp;action=edit&amp;section=3" title="编辑章节：国少及国青时期（2010-2013年）"><span>编辑</span></a><span class="mw-editsection-bracket">]</span></span></h3>
  
 def get_text_from_header(head_tag):
-    return "xxx"
+
+    # print(f" get_text_from_header : " + head_tag.get_text())
+        # print(h)
+    if len(head_tag) > 1: #TypeError: slice indices must be integers or None or have an __index__ method
+        for x in head_tag.find('span', {'class':'mw-headline'}):
+            return x
+    else:
+             
+        return ""
 
 def main(initial_url, articles_limit, interval, output_file):
     """ Main loop, single thread """
