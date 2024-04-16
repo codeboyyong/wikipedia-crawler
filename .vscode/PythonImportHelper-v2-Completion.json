@@ -1,0 +1,357 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "unquote",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "unquote",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "pinyin",
+        "importPath": "pypinyin",
+        "description": "pypinyin",
+        "isExtraImport": true,
+        "detail": "pypinyin",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "pypinyin",
+        "description": "pypinyin",
+        "isExtraImport": true,
+        "detail": "pypinyin",
+        "documentation": {}
+    },
+    {
+        "label": "pinyin",
+        "importPath": "pypinyin",
+        "description": "pypinyin",
+        "isExtraImport": true,
+        "detail": "pypinyin",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "pypinyin",
+        "description": "pypinyin",
+        "isExtraImport": true,
+        "detail": "pypinyin",
+        "documentation": {}
+    },
+    {
+        "label": "InsecureRequestWarning",
+        "importPath": "requests.packages.urllib3.exceptions",
+        "description": "requests.packages.urllib3.exceptions",
+        "isExtraImport": true,
+        "detail": "requests.packages.urllib3.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "InsecureRequestWarning",
+        "importPath": "requests.packages.urllib3.exceptions",
+        "description": "requests.packages.urllib3.exceptions",
+        "isExtraImport": true,
+        "detail": "requests.packages.urllib3.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "ARTICLES",
+        "kind": 5,
+        "importPath": "all-languages-crawler",
+        "description": "all-languages-crawler",
+        "peekOfCode": "ARTICLES = 100\nINTERVAL = 1.2\nlang_codes = set()\nwith open('language-codes.txt') as fin:\n    for line in fin:\n        lang_codes.add(line.strip())\nfor lang in lang_codes:\n    print(\"\\nCrawling: {}\".format(lang.upper()))\n    run = 'python3 wikipedia-crawler.py https://{0}.wikipedia.org/wiki/Special:Random --output={0}.txt --articles={1} --interval={2}'.format(lang, ARTICLES, INTERVAL)\n    os.system(run)",
+        "detail": "all-languages-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "INTERVAL",
+        "kind": 5,
+        "importPath": "all-languages-crawler",
+        "description": "all-languages-crawler",
+        "peekOfCode": "INTERVAL = 1.2\nlang_codes = set()\nwith open('language-codes.txt') as fin:\n    for line in fin:\n        lang_codes.add(line.strip())\nfor lang in lang_codes:\n    print(\"\\nCrawling: {}\".format(lang.upper()))\n    run = 'python3 wikipedia-crawler.py https://{0}.wikipedia.org/wiki/Special:Random --output={0}.txt --articles={1} --interval={2}'.format(lang, ARTICLES, INTERVAL)\n    os.system(run)\nprint(\"\\nALL LANGUAGES DONE!\")",
+        "detail": "all-languages-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "lang_codes",
+        "kind": 5,
+        "importPath": "all-languages-crawler",
+        "description": "all-languages-crawler",
+        "peekOfCode": "lang_codes = set()\nwith open('language-codes.txt') as fin:\n    for line in fin:\n        lang_codes.add(line.strip())\nfor lang in lang_codes:\n    print(\"\\nCrawling: {}\".format(lang.upper()))\n    run = 'python3 wikipedia-crawler.py https://{0}.wikipedia.org/wiki/Special:Random --output={0}.txt --articles={1} --interval={2}'.format(lang, ARTICLES, INTERVAL)\n    os.system(run)\nprint(\"\\nALL LANGUAGES DONE!\")",
+        "detail": "all-languages-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "load_urls",
+        "kind": 2,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "def load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:\n        pass\ndef scrap(base_url, article, output_file, session_file):\n    \"\"\"Represents one request per article\"\"\"",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "scrap",
+        "kind": 2,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "def scrap(base_url, article, output_file, session_file):\n    \"\"\"Represents one request per article\"\"\"\n    full_url = base_url + article\n    print(f\"going to scrap {unquote(full_url)}\")\n# pip install --upgrade certifi\n    # try:\n        # r = requests.get(full_url, headers={'User-Agent': USER_AGENT})\n    r = requests.get(full_url, headers={'User-Agent': USER_AGENT},verify=False)\n    # except requests.exceptions.ConnectionError:\n    #     print(f\"Check your Internet connection as we see {requests.exceptions.ConnectionError}\")",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "get_text_from_header",
+        "kind": 2,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "def get_text_from_header(head_tag)-> str:\n    # print(f\" get_text_from_header : \" + head_tag.get_text())\n        # print(h)\n    if len(head_tag) > 1: #TypeError: slice indices must be integers or None or have an __index__ method\n        for x in head_tag.find('span', {'class':'mw-headline'}):\n            return x\n    else:\n        return \"\"\ndef handleUl(ul)->str:\n    text=\"\"",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "handleUl",
+        "kind": 2,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "def handleUl(ul)->str:\n    text=\"\"\n    lis=ul.find_all(\"li\")    \n    for li in lis:\n        line = f\" * {li.get_text()}\\n\"\n        text = f\"{text}{line}\"  \n    return text\ndef main(initial_url, articles_limit, interval, output_file):\n    \"\"\" Main loop, single thread \"\"\"\n    minutes_estimate = interval * articles_limit / 60",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "def main(initial_url, articles_limit, interval, output_file):\n    \"\"\" Main loop, single thread \"\"\"\n    minutes_estimate = interval * articles_limit / 60\n    print(\"This session will take {:.1f} minute(s) to download {} article(s):\".format(minutes_estimate, articles_limit))\n    print(\"\\t(Press CTRL+C to pause)\\n\")\n    session_file = \"./outputs/session_\" + output_file\n    load_urls(session_file)  # load previous session (if any)\n    base_url = '{uri.scheme}://{uri.netloc}'.format(uri=urlparse(initial_url))\n    initial_url = initial_url[len(base_url):]\n    pending_urls.append(initial_url)",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_INTERVAL",
+        "kind": 5,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "DEFAULT_INTERVAL = 5.0  # interval between requests (seconds)\nDEFAULT_ARTICLES_LIMIT = 1  # total number articles to be extrated\nUSER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'\nvisited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_ARTICLES_LIMIT",
+        "kind": 5,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "DEFAULT_ARTICLES_LIMIT = 1  # total number articles to be extrated\nUSER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'\nvisited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "USER_AGENT",
+        "kind": 5,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'\nvisited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "visited_urls",
+        "kind": 5,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "visited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:\n        pass",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "pending_urls",
+        "kind": 5,
+        "importPath": "wikipedia-crawler",
+        "description": "wikipedia-crawler",
+        "peekOfCode": "pending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:\n        pass\ndef scrap(base_url, article, output_file, session_file):",
+        "detail": "wikipedia-crawler",
+        "documentation": {}
+    },
+    {
+        "label": "load_urls",
+        "kind": 2,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "def load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:\n        pass\ndef scrap(base_url, article, output_file, session_file):\n    \"\"\"Represents one request per article\"\"\"",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "scrap",
+        "kind": 2,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "def scrap(base_url, article, output_file, session_file):\n    \"\"\"Represents one request per article\"\"\"\n    full_url = base_url + article\n    print(f\"going to scrap {unquote(full_url)}\")\n# pip install --upgrade certifi\n    # try:\n        # r = requests.get(full_url, headers={'User-Agent': USER_AGENT})\n    r = requests.get(full_url, headers={'User-Agent': USER_AGENT},verify=False)\n    # except requests.exceptions.ConnectionError:\n    #     print(f\"Check your Internet connection as we see {requests.exceptions.ConnectionError}\")",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "def main(initial_url, articles_limit, interval, output_file):\n    \"\"\" Main loop, single thread \"\"\"\n    minutes_estimate = interval * articles_limit / 60\n    print(\"This session will take {:.1f} minute(s) to download {} article(s):\".format(minutes_estimate, articles_limit))\n    print(\"\\t(Press CTRL+C to pause)\\n\")\n    session_file = \"./outputs/session_\" + output_file\n    load_urls(session_file)  # load previous session (if any)\n    base_url = '{uri.scheme}://{uri.netloc}'.format(uri=urlparse(initial_url))\n    initial_url = initial_url[len(base_url):]\n    pending_urls.append(initial_url)",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_INTERVAL",
+        "kind": 5,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "DEFAULT_INTERVAL = 5.0  # interval between requests (seconds)\nDEFAULT_ARTICLES_LIMIT = 1  # total number articles to be extrated\nUSER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'\nvisited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_ARTICLES_LIMIT",
+        "kind": 5,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "DEFAULT_ARTICLES_LIMIT = 1  # total number articles to be extrated\nUSER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'\nvisited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "USER_AGENT",
+        "kind": 5,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'\nvisited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "visited_urls",
+        "kind": 5,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "visited_urls = set()  # all urls already visited, to not visit twice\npending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:\n        pass",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    },
+    {
+        "label": "pending_urls",
+        "kind": 5,
+        "importPath": "wikipedia-crawler_origin",
+        "description": "wikipedia-crawler_origin",
+        "peekOfCode": "pending_urls = []  # queue\ndef load_urls(session_file):\n    \"\"\"Resume previous session if any, load visited URLs\"\"\"\n    try:\n        with open(session_file) as fin:\n            for line in fin:\n                visited_urls.add(line.strip())\n    except FileNotFoundError:\n        pass\ndef scrap(base_url, article, output_file, session_file):",
+        "detail": "wikipedia-crawler_origin",
+        "documentation": {}
+    }
+]

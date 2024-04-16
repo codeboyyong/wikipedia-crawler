@@ -119,32 +119,40 @@ def scrap(base_url, article, output_file, session_file):
     print(f"start find all in content =====")
 
     # get plain text from each <p>
-    h_or_p =  content.find_all(lambda tag: tag.name=="h2" or tag.name=="h3" or tag.name=="p"  )
+    contents =  content.find_all(lambda tag: tag.name=="h2" or tag.name=="h3" or tag.name=="p" or tag.name=="ul"  )
     # print(f"h_or_p====={h_or_p}")
 
     # p_list = content.find_all('p')
+
+    skip_h2s={"参考资料","外部链接"}
     with open(output_file, 'a', encoding='utf-8') as fout:
-        for item in h_or_p:
+        for item in contents:
+            text = ""
             if item.name=="h2":
                 text = get_text_from_header(item)
+                if text.strip() in skip_h2s : #stop here as it bring to much other stuff
+                    break
                 print(f"processing h2:{text}")
-                fout.write(f"## {text} \n\n")  #h2
+                text = (f"## {text}")  #h2
             elif item.name=="h3":
                 text = get_text_from_header(item)
                 print(f"processing h3:{text}")
-                fout.write(f"### {text} \n\n")  #h3
+                text = (f"### {text}")  #h3
+            elif item.name=="ul":
+                text = handleUl(item)
             elif item.name=="p":
                 text = item.get_text().strip()
                 text = parenthesis_regex.sub('', text)
                 text = citations_regex.sub('', text)
-                if text:
-                    fout.write(text + '\n\n')  # extra line between paragraphs
+            
+            if text:
+                fout.write(text + "\n\n")  # extra line between paragraphs
 
 # head_tag is h2 or h3 
 # <h2><span id=".E5.9B.BD.E5.AE.B6.E9.98.9F.E7.BB.8F.E5.8E.86"></span><span class="mw-headline" id="国家队经历">国家队经历</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%9C%B1%E5%A9%B7&amp;action=edit&amp;section=2" title="编辑章节：国家队经历"><span>编辑</span></a><span class="mw-editsection-bracket">]</span></span></h2>
 # <h3><span id=".E5.9C.8B.E5.B0.91.E5.8F.8A.E5.9C.8B.E9.9D.92.E6.99.82.E6.9C.9F.EF.BC.882010-2013.E5.B9.B4.EF.BC.89"></span><span class="mw-headline" id="國少及國青時期（2010-2013年）">国少及国青时期（2010-2013年）</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%9C%B1%E5%A9%B7&amp;action=edit&amp;section=3" title="编辑章节：国少及国青时期（2010-2013年）"><span>编辑</span></a><span class="mw-editsection-bracket">]</span></span></h3>
- 
-def get_text_from_header(head_tag):
+
+def get_text_from_header(head_tag)-> str:
 
     # print(f" get_text_from_header : " + head_tag.get_text())
         # print(h)
@@ -152,8 +160,16 @@ def get_text_from_header(head_tag):
         for x in head_tag.find('span', {'class':'mw-headline'}):
             return x
     else:
-             
         return ""
+
+def handleUl(ul)->str:
+    text=""
+    lis=ul.find_all("li")    
+    for li in lis:
+        line = f" * {li.get_text()}\n"
+        text = f"{text}{line}"  
+        
+    return text
 
 def main(initial_url, articles_limit, interval, output_file):
     """ Main loop, single thread """
